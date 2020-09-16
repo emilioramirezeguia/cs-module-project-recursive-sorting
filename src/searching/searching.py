@@ -1,7 +1,10 @@
 # TO-DO: Implement a recursive implementation of binary search
 def binary_search(arr, target, start, end):
-    # base case 1: list is less than or equal to 1, no more values to search from
-    if len(arr) <= 1:
+    # # base case 1: list is less than or equal to 1, no more values to search from
+    # if len(arr) <= 1:
+    #     return -1
+    # other way of impleenting base case 1:
+    if start > end:
         return -1
     # keep track of the middle position in the list
     middle = (start + end) // 2
@@ -9,10 +12,10 @@ def binary_search(arr, target, start, end):
     if target == arr[middle]:
         return middle
     # recursion: adjust list size and middle value
-    if target < arr[middle]:
+    elif target < arr[middle]:
         end = middle - 1
         return binary_search(arr, target, start, end)
-    if target > arr[middle]:
+    else:
         start = middle + 1
         return binary_search(arr, target, start, end)
 
